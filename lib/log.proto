@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+package request_log;
+
+service RequestLogService {
+  rpc fetch (RequestLogPayload) returns (RequestLogDataList) {}
+  rpc log (CreateRequestLogPayload) returns (Void) {}
+}
+
+message Void {}
+
+message RequestLogPayload {
+  optional int32 page = 1;
+  optional int32 pageSze = 2;
+  optional string filter = 3;
+}
+
+message CreateRequestLogPayload {
+  string data = 1;
+}
+
+message RequestLogData {
+  optional string requestBody = 1;
+  optional string responseBody = 2;
+  optional string ipAddress = 3;
+  optional string createdAt = 4;
+  optional string username = 5;
+  optional string userId = 6;
+  optional string requestTime = 7;
+  optional string responseTime = 8;
+  string url = 9;
+  optional string query = 10;
+  optional string userAgent = 11;
+  optional string referrer = 12;
+  optional string httpMethod = 13;
+  optional string statusCode = 14;
+  optional string headers = 15;
+  string logKey = 16;
+  string logSecret = 17;
+  string callType = 18;
+}
+
+message RequestLogDataList {
+  repeated RequestLogData data = 1;
+  int32 countAll = 2;
+  int32 page = 3;
+  int32 pageSize = 4;
+}
+
