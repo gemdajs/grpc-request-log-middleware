@@ -1,6 +1,6 @@
 {
   "name": "@afex-dev/grpc-request-log-middleware",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "AFEX's request log middleware for grpc servers",
   "main": "index.js",
   "scripts": {
